@@ -4,7 +4,7 @@ This is the official FeedbackBulb SDK for static web pages. It allows you to eas
 
 FeedbackBulb SDK does not use cookies and never tracks your visitors. It is fully GDPR compliant.
 
-Quick start instructions [available here](https://feedbackbulb.com/docs/platforms/web/quick_start.html).
+Quick start instructions [available here](https://docs.feedbackbulb.com/platforms/web/quick_start.html).
 
 ## Acknowledgements
 
