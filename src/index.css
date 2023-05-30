@@ -1,0 +1,359 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .fbb-widgets > * *,
+  .fbb-widgets > * ::before,
+  .fbb-widgets > * ::after {
+    box-sizing: border-box;
+    /* 1 */
+    border-width: 0;
+    /* 2 */
+    border-style: solid;
+    /* 2 */
+    border-color: theme("borderColor.DEFAULT", currentColor);
+    /* 2 */
+  }
+
+  .fbb-widgets > * ::before,
+  .fbb-widgets > * ::after {
+    --tw-content: "";
+  }
+
+  .fbb-widgets > * {
+    line-height: 1.5;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+    -moz-tab-size: 4;
+    /* 3 */
+    tab-size: 4;
+    /* 3 */
+    font-family: theme(
+      "fontFamily.sans",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji"
+    );
+    /* 4 */
+    font-feature-settings: theme(
+      "fontFamily.sans[1].fontFeatureSettings",
+      normal
+    );
+    /* 5 */
+    font-variation-settings: theme(
+      "fontFamily.sans[1].fontVariationSettings",
+      normal
+    );
+    /* 6 */
+  }
+
+  .fbb-widgets > * {
+    margin: 0;
+    /* 1 */
+    line-height: inherit;
+    /* 2 */
+  }
+
+  .fbb-widgets > * hr {
+    height: 0;
+    /* 1 */
+    color: inherit;
+    /* 2 */
+    border-top-width: 1px;
+    /* 3 */
+  }
+
+  .fbb-widgets > * abbr:where([title]) {
+    text-decoration: underline dotted;
+  }
+
+  .fbb-widgets > * h1,
+  .fbb-widgets > * h2,
+  .fbb-widgets > * h3,
+  .fbb-widgets > * h4,
+  .fbb-widgets > * h5,
+  .fbb-widgets > * h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .fbb-widgets > * a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .fbb-widgets > * b,
+  .fbb-widgets > * strong {
+    font-weight: bolder;
+  }
+
+  .fbb-widgets > * code,
+  .fbb-widgets > * kbd,
+  .fbb-widgets > * samp,
+  .fbb-widgets > * pre {
+    font-family: theme(
+      "fontFamily.mono",
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace
+    );
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+  }
+
+  .fbb-widgets > * small {
+    font-size: 80%;
+  }
+
+  .fbb-widgets > * sub,
+  .fbb-widgets > * sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  .fbb-widgets > * sub {
+    bottom: -0.25em;
+  }
+
+  .fbb-widgets > * sup {
+    top: -0.5em;
+  }
+
+  .fbb-widgets > * table {
+    text-indent: 0;
+    /* 1 */
+    border-color: inherit;
+    /* 2 */
+    border-collapse: collapse;
+    /* 3 */
+  }
+
+  .fbb-widgets > * button,
+  .fbb-widgets > * input,
+  .fbb-widgets > * optgroup,
+  .fbb-widgets > * select,
+  .fbb-widgets > * textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    font-weight: inherit;
+    /* 1 */
+    line-height: inherit;
+    /* 1 */
+    color: inherit;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+    padding: 0;
+    /* 3 */
+  }
+
+  .fbb-widgets > * button,
+  .fbb-widgets > * select {
+    text-transform: none;
+  }
+
+  .fbb-widgets > * button,
+  .fbb-widgets > * [type="button"],
+  .fbb-widgets > * [type="reset"],
+  .fbb-widgets > * [type="submit"] {
+    -webkit-appearance: button;
+    /* 1 */
+    background-color: transparent;
+    /* 2 */
+    background-image: none;
+    /* 2 */
+  }
+
+  .fbb-widgets > * :-moz-focusring {
+    outline: auto;
+  }
+
+  .fbb-widgets > * :-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  .fbb-widgets > * progress {
+    vertical-align: baseline;
+  }
+
+  .fbb-widgets > * ::-webkit-inner-spin-button,
+  .fbb-widgets > * ::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  .fbb-widgets > * [type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */
+  }
+
+  .fbb-widgets > * ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  .fbb-widgets > * ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+  }
+
+  .fbb-widgets > * summary {
+    display: list-item;
+  }
+
+  .fbb-widgets > * blockquote,
+  .fbb-widgets > * dl,
+  .fbb-widgets > * dd,
+  .fbb-widgets > * h1,
+  .fbb-widgets > * h2,
+  .fbb-widgets > * h3,
+  .fbb-widgets > * h4,
+  .fbb-widgets > * h5,
+  .fbb-widgets > * h6,
+  .fbb-widgets > * hr,
+  .fbb-widgets > * figure,
+  .fbb-widgets > * p,
+  .fbb-widgets > * pre {
+    margin: 0;
+  }
+
+  .fbb-widgets > * fieldset {
+    margin: 0;
+    padding: 0;
+  }
+
+  .fbb-widgets > * legend {
+    padding: 0;
+  }
+
+  .fbb-widgets > * ol,
+  .fbb-widgets > * ul,
+  .fbb-widgets > * menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fbb-widgets > * textarea {
+    resize: vertical;
+  }
+
+  .fbb-widgets > * input::placeholder,
+  .fbb-widgets > * textarea::placeholder {
+    opacity: 1;
+    /* 1 */
+    color: theme("colors.gray.400", #9ca3af);
+    /* 2 */
+  }
+
+  .fbb-widgets > * button,
+  .fbb-widgets > * [role="button"] {
+    cursor: pointer;
+  }
+
+  .fbb-widgets > * :disabled {
+    cursor: default;
+  }
+
+  .fbb-widgets > * img,
+  .fbb-widgets > * svg,
+  .fbb-widgets > * video,
+  .fbb-widgets > * canvas,
+  .fbb-widgets > * audio,
+  .fbb-widgets > * iframe,
+  .fbb-widgets > * embed,
+  .fbb-widgets > * object {
+    display: block;
+    /* 1 */
+    vertical-align: middle;
+    /* 2 */
+  }
+
+  .fbb-widgets > * img,
+  .fbb-widgets > * video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .fbb-widgets > * [hidden] {
+    display: none;
+  }
+}
+
+.zofxlabel {
+  color: var(--fbb-primary) !important;
+}
+
+.zofxdisabled {
+  background-color: var(--fbb-hover) !important;
+}
+
+.zofxctalabel {
+  color: var(--fbb-fill) !important;
+}
+
+.zofxcta {
+  background-color: var(--fbb-primary) !important;
+  --tw-text-opacity: 1 !important;
+  color: var(--fbb-fill) !important;
+}
+
+.zofxcta:hover {
+  background-color: var(--fbb-hover) !important;
+}
+
+.zofxcta:focus-visible {
+  outline-color: var(--fbb-primary) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .zofxlabel {
+    color: var(--fbb-primary-dark) !important;
+  }
+
+  .zofxcta {
+    background-color: var(--fbb-primary-dark) !important;
+    color: var(--fbb-fill-dark) !important;
+  }
+
+  .zofxctalabel {
+    color: var(--fbb-fill-dark) !important;
+  }
+
+  .zofxdisabled {
+    background-color: var(--fbb-hover-dark) !important;
+  }
+
+  .zofxcta:hover {
+    background-color: var(--fbb-hover-dark) !important;
+  }
+
+  .zofxcta:focus-visible {
+    outline-color: var(--fbb-primary-dark) !important;
+  }
+}
