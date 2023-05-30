@@ -20,7 +20,7 @@ A complete list of dependencies is available in the `package.json`.
 
 ## License
 
-FeedbackBulb Web SDK is licensed with the BSD-3-Clause license, more information here: LICENSE.MD
+FeedbackBulb Web SDK is licensed with the BSD-3-Clause license, more information is [available here](LICENSE).
 
 This is a permissive license which allows for any type of use, provided the copyright notice is included.
 
