@@ -18,12 +18,12 @@ The library uses [TailwindCSS](https://tailwindcss.com/) and [heroicons](https:/
 
 A complete list of dependencies is available in the `package.json`.
 
-# License
+## License
 
 FeedbackBulb Web SDK is licensed with the BSD-3-Clause license, more information here: LICENSE.MD
 
 This is a permissive license which allows for any type of use, provided the copyright notice is included.
 
-# Contributing
+## Contributing
 
 You're welcome to report any issues or ideas for imroving the library. If you want to contribute code, please open a pull request.
