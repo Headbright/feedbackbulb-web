@@ -9,7 +9,7 @@ const DEFAULT_OPTIONS = {
   textLabel: "Describe what's happening",
   textPlaceholder: "Remember not to include personal information.",
   submitButtonLabel: "Submit",
-  showEmail: "true",
+  showEmail: "false",
   emailLabel: "Email",
   emailPlaceholder: "Type your email address",
   debugRequests: "true",

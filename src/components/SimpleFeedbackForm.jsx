@@ -148,7 +148,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                         <div className="text-center">
                           {!file ? (
                             <PhotoIcon
-                              className="fbb-mx-auto fbb-h-12 fbb-w-12 fbb-text-gray-300"
+                              className="fbb-mx-auto fbb-h-12 fbb-w-12 fbb-text-gray-400"
                               aria-hidden="true"
                             />
                           ) : (
@@ -228,7 +228,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                   {options.submitButtonLabel}
                 </button>
               </div>
-              <p class="fbb-mt-4 fbb-text-sm fbb-text-center">Powered by <a href="https://feedbackbulb.com"><span class="fbb-font-medium">Feedback</span><span class="fbb-text-brand fbb-font-medium">Bulb</span></a></p>
+              <p class="fbb-mt-4 fbb-text-xs fbb-text-center fbb-font-light fbb-text-gray-600">Powered by <a href="https://feedbackbulb.com"><span class="fbb-text-sm">Feedback</span><span class="fbb-text-sm fbb-font-medium">Bulb</span></a></p>
             </form>
           )}
         </Popover.Panel>
