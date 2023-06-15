@@ -1,15 +1,19 @@
 import { useState, useCallback, useRef } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MegaphoneIcon } from "@heroicons/react/24/outline";
-import { PhotoIcon } from "@heroicons/react/24/solid";
+import { TrashIcon } from "@heroicons/react/24/solid";
+import FilePreview from "./FilePreview";
 
 import { positionStyles, popUpPositionStyles } from "../placement";
+
+const MAX_FILE_SIZE_BYTES = 20971520;
 
 export default function SimpleFeedbackForm({ appKey, direction, options }) {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const formRef = useRef(null);
   const inputFileRef = useRef(null);
+  const [dragActive, setDragActive] = useState(false);
 
   const handleSubmit = useCallback(async (event) => {
     setLoading(true);
@@ -20,15 +24,52 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
         method: "POST",
         body: data,
       });
-      setFile(null)
+      handleRemoveImage();
     } catch (err) {
-      throw err
+      throw err;
     }
     setLoading(false);
   }, []);
 
   const handleFileAttached = useCallback((e) => {
+    if (e.target.files[0].size > MAX_FILE_SIZE_BYTES) {
+      // file too big
+      setFile(null);
+      e.target.value = "";
+      return;
+    }
     setFile(URL.createObjectURL(e.target.files[0]));
+    e.target.value = "";
+  }, []);
+
+  const handleDrag = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
+  }, []);
+
+  const handleDrop = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      if (e.dataTransfer.files[0].size > MAX_FILE_SIZE_BYTES) {
+        // file too big
+        setFile(null);
+        inputFileRef.current.value = "";
+        return;
+      }
+      setFile(URL.createObjectURL(e.dataTransfer.files[0]));
+      inputFileRef.current.value = "";
+    }
+  }, []);
+
+  const handleRemoveImage = useCallback(() => {
+    setFile(null);
   }, []);
 
   return (
@@ -144,32 +185,30 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                       >
                         {options.addAttachmentLabel}
                       </label>
-                      <div className="fbb-relative fbb-mt-2 fbb-flex fbb-justify-center fbb-rounded-lg fbb-border fbb-border-dashed fbb-border-gray-900/25 dark:fbb-border-white/25 fbb-px-6 fbb-py-4">
-                        <div className="text-center">
-                          {!file ? (
-                            <PhotoIcon
-                              className="fbb-mx-auto fbb-h-12 fbb-w-12 fbb-text-gray-400"
-                              aria-hidden="true"
-                            />
-                          ) : (
-                            <img
-                              className="fbb-h-18 fbb-w-18 fbb-m-auto fbb-rounded-md"
-                              src={file}
-                              alt=""
-                              onClick={(ev) => {
-                                ev.preventDefault();
-                                setFile(null);
-                                inputFileRef.value = null;
-                              }}
-                            />
-                          )}
-
-                          <div className="fbb-mt-4 fbb-flex fbb-text-sm fbb-leading-6 fbb-text-gray-600">
+                      <div
+                        className={
+                          "fbb-relative fbb-mt-2 fbb-flex fbb-justify-center fbb-rounded-lg fbb-border fbb-px-6 fbb-py-4" +
+                          (dragActive
+                            ? " fbb-border-2 fbb-border-solid zofxborder"
+                            : " fbb-border-dashed fbb-border-gray-900/25 dark:fbb-border-white/25")
+                        }
+                      >
+                        <div
+                          className="text-center relative"
+                          onDragEnter={handleDrag}
+                          onDragLeave={handleDrag}
+                          onDragOver={handleDrag}
+                          onDrop={handleDrop}
+                        >
+                          <FilePreview file={file} />
+                          <div className="fbb-mt-4 fbb-flex fbb-text-sm fbb-leading-6 fbb-text-gray-600 fbb-justify-center">
                             <label
                               htmlFor="file"
                               className="fbb-cursor-pointer fbb-rounded-md fbb-font-semibold fbb-text-brand-dark focus-within:fbb-outline-none focus-within:fbb-ring-2 focus-within:fbb-ring-brand focus-within:fbb-ring-offset-2 hover:fbb-text-brand-light"
                             >
-                              <span className="zofxlabel">{options.attachmentUploadButton}</span>
+                              <span className="zofxlabel">
+                                {options.attachmentUploadButton}
+                              </span>
                               <input
                                 id="file"
                                 ref={inputFileRef}
@@ -185,9 +224,22 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                             </p>
                           </div>
 
-                          <p className="fbb-text-xs fbb-leading-5 fbb-text-gray-600 dark:fbb-text-white">
+                          <p className="fbb-text-xs fbb-leading-5 fbb-text-gray-600 dark:fbb-text-white fbb-text-center">
                             {options.attachmentLimits}
                           </p>
+
+                          {file ? (
+                            <button
+                              className="fbb-absolute fbb-top-1 fbb-right-1 zofxcta fbb-rounded-full fbb-cursor-pointer"
+                              title="Remove attachment"
+                              onClick={handleRemoveImage}
+                            >
+                              <TrashIcon
+                                className="fbb-w-6 fbb-h-6 fbb-m-2"
+                                aria-hidden="true"
+                              />
+                            </button>
+                          ) : null}
                         </div>
                       </div>
                     </div>
@@ -228,7 +280,13 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                   {options.submitButtonLabel}
                 </button>
               </div>
-              <p class="fbb-mt-4 fbb-text-xs fbb-text-center fbb-font-light fbb-text-gray-600">Powered by <a href="https://feedbackbulb.com"><span class="fbb-text-sm">Feedback</span><span class="fbb-text-sm fbb-font-medium">Bulb</span></a></p>
+              <p className="fbb-mt-4 fbb-text-xs fbb-text-center fbb-font-light fbb-text-gray-600">
+                Powered by{" "}
+                <a href="https://feedbackbulb.com">
+                  <span className="fbb-text-sm">Feedback</span>
+                  <span className="fbb-text-sm fbb-font-medium">Bulb</span>
+                </a>
+              </p>
             </form>
           )}
         </Popover.Panel>

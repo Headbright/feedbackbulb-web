@@ -327,6 +327,10 @@
   background-color: var(--fbb-hover) !important;
 }
 
+.zofxborder {
+  border-color: var(--fbb-primary) !important;
+}
+
 .zofxcta:focus-visible {
   outline-color: var(--fbb-primary) !important;
 }
