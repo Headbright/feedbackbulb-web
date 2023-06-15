@@ -125,6 +125,12 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                 name="value[key]"
                 value={appKey}
               />
+              <input
+                type="hidden"
+                className="fbb-hidden"
+                name="value[attributes][url]"
+                value={`${window.location}`}
+              />
               <div className="fbb-px-2 sm:fbb-px-4">
                 <h2 className="fbb-text-base fbb-font-semibold fbb-leading-7 fbb-text-gray-900 dark:fbb-text-white">
                   {options.title}
