@@ -39,7 +39,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
       return;
     }
     setFile(URL.createObjectURL(e.target.files[0]));
-    e.target.value = "";
+    // e.target.value = "";
   }, []);
 
   const handleDrag = useCallback((e) => {
