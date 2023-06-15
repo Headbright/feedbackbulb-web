@@ -64,6 +64,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
         return;
       }
       setFile(URL.createObjectURL(e.dataTransfer.files[0]));
+      inputFileRef.current.files = e.dataTransfer.files;
       // inputFileRef.current.value = "";
     }
   }, []);
