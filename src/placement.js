@@ -1,7 +1,7 @@
-export const BOTTOM_TRAILING = "fbb-bottom-10 fbb-right-10";
-export const BOTTOM_LEADING = "fbb-bottom-10 fbb-left-10";
-export const TOP_LEADING = "fbb-top-10 fbb-left-10";
-export const TOP_TRAILING = "fbb-top-10 fbb-right-10";
+export const BOTTOM_TRAILING = "fbb-bottom-fbb10 fbb-right-fbb10";
+export const BOTTOM_LEADING = "fbb-bottom-fbb10 fbb-left-fbb10";
+export const TOP_LEADING = "fbb-top-fbb10 fbb-left-fbb10";
+export const TOP_TRAILING = "fbb-top-fbb10 fbb-right-fbb10";
 export const VALID_PLACEMENTS = [
   BOTTOM_TRAILING,
   BOTTOM_LEADING,
@@ -10,11 +10,12 @@ export const VALID_PLACEMENTS = [
 ];
 
 export const POPUP_BOTTOM_TRAILING =
-  "fbb-bottom-12 sm:fbb-bottom-8 -fbb-right-10 sm:fbb-right-10";
+  "fbb-bottom-fbb12 sm:fbb-bottom-fbb8 -fbb-right-fbb10 sm:fbb-right-fbb10";
 export const POPUP_BOTTOM_LEADING =
-  "fbb-bottom-12 sm:fbb-bottom-8 -fbb-left-10 sm:fbb-left-10";
-export const POPUP_TOP_LEADING = "fbb-top-0 -fbb-left-10 sm:fbb-left-11";
-export const POPUP_TOP_TRAILING = "fbb-top-0 -fbb-right-10 sm:fbb-right-11";
+  "fbb-bottom-fbb12 sm:fbb-bottom-fbb8 -fbb-left-fbb10 sm:fbb-left-fbb10";
+export const POPUP_TOP_LEADING = "fbb-top-0 -fbb-left-fbb10 sm:fbb-left-fbb11";
+export const POPUP_TOP_TRAILING =
+  "fbb-top-0 -fbb-right-fbb10 sm:fbb-right-fbb11";
 
 export const positionStyles = (direction) => {
   if (!direction) {

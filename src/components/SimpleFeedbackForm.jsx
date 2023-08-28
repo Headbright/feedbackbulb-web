@@ -76,7 +76,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
   return (
     <Popover className={`fbb-fixed ${positionStyles(direction)}`}>
       <Popover.Button
-        className="fbb-rounded-full zofxcta fbb-p-2 fbb-text-black fbb-shadow-lg border-t-2 focus-visible:fbb-outline focus-visible:fbb-outline-2 focus-visible:fbb-outline-offset-2 "
+        className="fbb-rounded-full zofxcta fbb-p-fbb2 fbb-text-black fbb-shadow-lg border-t-fbb2 focus-visible:fbb-outline focus-visible:fbb-outline-fbb2 focus-visible:fbb-outline-offset-fbb2 "
         title="Send feedback"
         style={{
           "--fbb-primary": options.primaryColor,
@@ -87,7 +87,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
           "--fbb-fill-dark": options.fillColorDark,
         }}
       >
-        <MegaphoneIcon className="fbb-w-6 fbb-h-6" />
+        <MegaphoneIcon className="fbb-w-fbb6 fbb-h-fbb6" />
       </Popover.Button>
 
       <Transition
@@ -99,14 +99,14 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
         leaveTo="fbb-transform fbb-scale-95 fbb-opacity-0"
       >
         <Popover.Panel
-          className={`fbb-fixed fbb-box-border fbb-border-2 fbb-border-gray-400/25 dark:fbb-border-slate-800 fbb-w-[400px] fbb-bg-white dark:fbb-bg-slate-900 fbb-rounded-md fbb-shadow-lg fbb-z-10 ${popUpPositionStyles(
+          className={`fbb-fixed fbb-box-border fbb-border-fbb2 fbb-border-gray-400/25 dark:fbb-border-slate-800 fbb-w-[400px] fbb-bg-white dark:fbb-bg-slate-900 fbb-rounded-md fbb-shadow-lg fbb-z-10 ${popUpPositionStyles(
             direction
           )}`}
         >
           {({ close }) => (
             <form
               ref={formRef}
-              className={`fbb-py-4 fbb-overflow-y-auto fbb-max-h-[82vh] `}
+              className={`fbb-py-fbb4 fbb-overflow-y-auto fbb-max-h-[82vh] `}
               onSubmit={async (ev) => {
                 await handleSubmit(ev);
                 close();
@@ -132,7 +132,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                 name="value[attributes][url]"
                 value={`${window.location}`}
               />
-              <div className="fbb-px-2 sm:fbb-px-4">
+              <div className="fbb-px-fbb2 sm:fbb-px-fbb4">
                 <h2 className="fbb-text-base fbb-font-semibold fbb-leading-7 fbb-text-gray-900 dark:fbb-text-white">
                   {options.title}
                 </h2>
@@ -140,7 +140,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                   {options.subtitle}
                 </p>
 
-                <div className="fbb-mt-4 fbb-grid fbb-grid-cols-1 fbb-gap-x-6 fbb-gap-y-4 sm:fbb-grid-cols-6">
+                <div className="fbb-mt-fbb4 fbb-grid fbb-grid-cols-1 fbb-gap-x-fbb6 fbb-gap-y-fbb4 sm:fbb-grid-cols-6">
                   {options.showEmail === "true" ? (
                     <div className="sm:fbb-col-span-full">
                       <label
@@ -149,14 +149,14 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                       >
                         {options.emailLabel}
                       </label>
-                      <div className="fbb-mt-2">
+                      <div className="fbb-mt-fbb2">
                         <div className="fbb-flex fbb-rounded-md fbb-shadow-sm fbb-ring-1 fbb-ring-inset fbb-ring-gray-300 sm:fbb-max-w-md">
                           <input
                             type="email"
                             name="value[email]"
                             id="value[email]"
                             autoComplete="email"
-                            className="fbb-px-3 fbb-block fbb-flex-1 fbb-border-0 fbb-bg-transparent fbb-py-1.5 fbb-text-gray-900 dark:fbb-text-white placeholder:fbb-text-gray-400 dark:fbb-bg-slate-800 sm:fbb-text-sm sm:fbb-leading-6 fbb-ring-gray-300 fbb-rounded focus:fbb-ring-2 focus:fbb-ring-inset"
+                            className="fbb-px-fbb3 fbb-block fbb-flex-1 fbb-border-0 fbb-bg-transparent fbb-py-fbb1.5 fbb-text-gray-900 dark:fbb-text-white placeholder:fbb-text-gray-400 dark:fbb-bg-slate-800 sm:fbb-text-sm sm:fbb-leading-6 fbb-ring-gray-300 fbb-rounded focus:fbb-ring-2 focus:fbb-ring-inset"
                             placeholder={options.emailPlaceholder}
                           />
                         </div>
@@ -171,14 +171,14 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                     >
                       {options.textLabel}
                     </label>
-                    <div className="fbb-mt-2">
+                    <div className="fbb-mt-fbb2">
                       <textarea
                         id="value[content]"
                         name="value[content]"
                         rows={2}
                         required
                         placeholder={options.textPlaceholder}
-                        className="fbb-py-2 fbb-px-3 fbb-bg-white dark:fbb-bg-slate-800 fbb-block fbb-w-full fbb-rounded-md fbb-border-0 fbb-text-gray-900 dark:fbb-text-white fbb-shadow-sm fbb-ring-1 fbb-ring-inset fbb-ring-gray-300 placeholder:fbb-text-gray-400 focus:fbb-ring-2 focus:fbb-ring-inset sm:fbb-py-1.5 sm:fbb-text-sm sm:fbb-leading-6"
+                        className="fbb-py-fbb2 fbb-px-fbb3 fbb-bg-white dark:fbb-bg-slate-800 fbb-block fbb-w-full fbb-rounded-md fbb-border-0 fbb-text-gray-900 dark:fbb-text-white fbb-shadow-sm fbb-ring-1 fbb-ring-inset fbb-ring-gray-300 placeholder:fbb-text-gray-400 focus:fbb-ring-2 focus:fbb-ring-inset sm:fbb-py-fbb1.5 sm:fbb-text-sm sm:fbb-leading-6"
                         defaultValue={""}
                       />
                     </div>
@@ -194,7 +194,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                       </label>
                       <div
                         className={
-                          "fbb-relative fbb-mt-2 fbb-flex fbb-justify-center fbb-rounded-lg fbb-border fbb-px-6 fbb-py-4" +
+                          "fbb-relative fbb-mt-fbb2 fbb-flex fbb-justify-center fbb-rounded-lg fbb-border fbb-px-fbb6 fbb-py-fbb4" +
                           (dragActive
                             ? " fbb-border-2 fbb-border-solid zofxborder"
                             : " fbb-border-dashed fbb-border-gray-900/25 dark:fbb-border-white/25")
@@ -208,7 +208,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                           onDrop={handleDrop}
                         >
                           <FilePreview file={file} />
-                          <div className="fbb-mt-4 fbb-flex fbb-text-sm fbb-leading-6 fbb-text-gray-600 fbb-justify-center">
+                          <div className="fbb-mt-fbb4 fbb-flex fbb-text-sm fbb-leading-6 fbb-text-gray-600 fbb-justify-center">
                             <label
                               htmlFor="file"
                               className="fbb-cursor-pointer fbb-rounded-md fbb-font-semibold fbb-text-brand-dark focus-within:fbb-outline-none focus-within:fbb-ring-2 focus-within:fbb-ring-brand focus-within:fbb-ring-offset-2 hover:fbb-text-brand-light"
@@ -226,7 +226,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                                 onChange={handleFileAttached}
                               />
                             </label>
-                            <p className="fbb-pl-1 dark:fbb-text-white">
+                            <p className="fbb-pl-fbb1 dark:fbb-text-white">
                               {options.attachmentUploadCaption}
                             </p>
                           </div>
@@ -237,12 +237,12 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
 
                           {file ? (
                             <button
-                              className="fbb-absolute fbb-top-1 fbb-right-1 zofxcta fbb-rounded-full fbb-cursor-pointer"
+                              className="fbb-absolute fbb-top-fbb1 fbb-right-fbb1 zofxcta fbb-rounded-full fbb-cursor-pointer"
                               title="Remove attachment"
                               onClick={handleRemoveImage}
                             >
                               <TrashIcon
-                                className="fbb-w-6 fbb-h-6 fbb-m-2"
+                                className="fbb-w-fbb6 fbb-h-fbb6 fbb-m-fbb2"
                                 aria-hidden="true"
                               />
                             </button>
@@ -253,10 +253,10 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                   ) : null}
                 </div>
               </div>
-              <div className="fbb-mt-6 fbb-flex fbb-items-center fbb-px-2 sm:fbb-px-4">
+              <div className="fbb-mt-fbb6 fbb-flex fbb-items-center fbb-px-fbb2 sm:fbb-px-fbb4">
                 <button
                   type="submit"
-                  className={`zofxctalabel fbb-inline-flex fbb-items-center fbb-justify-center fbb-rounded-md fbb-w-full  fbb-px-3 fbb-py-2 fbb-text-sm fbb-font-semibold fbb-shadow-sm  ${
+                  className={`zofxctalabel fbb-inline-flex fbb-items-center fbb-justify-center fbb-rounded-md fbb-w-full  fbb-px-fbb3 fbb-py-fbb2 fbb-text-sm fbb-font-semibold fbb-shadow-sm  ${
                     loading
                       ? "zofxdisabled fbb-cursor-not-allowed"
                       : "zofxcta focus-visible:fbb-outline focus-visible:fbb-outline-2 focus-visible:fbb-outline-offset-2 "
@@ -264,7 +264,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                 >
                   {loading ? (
                     <svg
-                      className="fbb-animate-spin fbb-mr-3 fbb-h-5 fbb-w-5 fbb--ml-4"
+                      className="fbb-animate-spin fbb-mr-fbb3 fbb-h-fbb5 fbb-w-fbb5 fbb--ml-fbb4"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -287,7 +287,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                   {options.submitButtonLabel}
                 </button>
               </div>
-              <p className="fbb-mt-4 fbb-text-xs fbb-text-center fbb-font-light fbb-text-gray-600">
+              <p className="fbb-mt-fbb4 fbb-text-xs fbb-text-center fbb-font-light fbb-text-gray-600">
                 Powered by{" "}
                 <a href="https://feedbackbulb.com">
                   <span className="fbb-text-sm">Feedback</span>

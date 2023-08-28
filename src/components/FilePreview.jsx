@@ -10,7 +10,7 @@ export default function FilePreview({ file }) {
     />
   ) : (
     <PhotoIcon
-      className="fbb-mx-auto fbb-h-12 fbb-w-12 fbb-text-gray-400"
+      className="fbb-mx-auto fbb-h-fbb12 fbb-w-fbb12 fbb-text-gray-400"
       aria-hidden="true"
     />
   );
