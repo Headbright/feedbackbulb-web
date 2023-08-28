@@ -287,7 +287,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
                   {options.submitButtonLabel}
                 </button>
               </div>
-              <p className="fbb-mt-fbb4 fbb-text-xs fbb-text-center fbb-font-light fbb-text-gray-600">
+              <p className="fbb-mt-fbb4 fbb-text-xs fbb-text-center fbb-font-light fbb-text-gray-900 dark:fbb-text-white">
                 Powered by{" "}
                 <a href="https://feedbackbulb.com">
                   <span className="fbb-text-sm">Feedback</span>
