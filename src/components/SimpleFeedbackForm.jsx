@@ -76,7 +76,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
   return (
     <Popover className={`fbb-fixed ${positionStyles(direction)}`}>
       <Popover.Button
-        className="fbb-rounded-full zofxcta fbb-p-fbb2 fbb-text-black fbb-shadow-lg border-t-fbb2 focus-visible:fbb-outline focus-visible:fbb-outline-fbb2 focus-visible:fbb-outline-offset-fbb2 "
+        className="fbb-rounded-full zofxcta fbb-p-fbb2 fbb-text-black fbb-shadow-lg border-t-fbb2 focus-visible:fbb-outline focus-visible:fbb-outline-2 focus-visible:fbb-outline-offset-fbb2 "
         title="Send feedback"
         style={{
           "--fbb-primary": options.primaryColor,
