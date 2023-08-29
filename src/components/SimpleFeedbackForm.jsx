@@ -99,7 +99,7 @@ export default function SimpleFeedbackForm({ appKey, direction, options }) {
         leaveTo="fbb-transform fbb-scale-95 fbb-opacity-0"
       >
         <Popover.Panel
-          className={`fbb-fixed fbb-box-border fbb-border-fbb2 fbb-border-gray-400/25 dark:fbb-border-slate-800 fbb-w-[400px] fbb-bg-white dark:fbb-bg-slate-900 fbb-rounded-md fbb-shadow-lg fbb-z-10 ${popUpPositionStyles(
+          className={`fbb-fixed fbb-box-border fbb-border-fbb2 fbb-border-gray-400/25 dark:fbb-border-slate-800 fbb-w-[350px] sm:fbb-w-[400px] fbb-bg-white dark:fbb-bg-slate-900 fbb-rounded-md fbb-shadow-lg fbb-z-10 ${popUpPositionStyles(
             direction
           )}`}
         >
